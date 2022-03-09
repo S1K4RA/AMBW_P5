@@ -1,13 +1,16 @@
 class Pegawai {
-  int _gaji_dasar = 0;
+  int _gajiDasar = 0;
   int _tunjangan = 0;
 
-  Pegawai(this._gaji_dasar,this._tunjangan);
+  Pegawai(this._gajiDasar,this._tunjangan);
   
   set gajiDasar (int gajiDasar) {
-    this._gaji_dasar = gajiDasar;
+    this._gajiDasar = gajiDasar;
   }
   set tunjangan (int tunjangan ) {
-    this._tunjangan = tunjangan;
+    if (tunjangan < 0)
+      this._tunjangan = 0; 
+    else
+      this._tunjangan = tunjangan;
   }
 }

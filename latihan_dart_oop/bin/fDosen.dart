@@ -1,26 +1,44 @@
 import 'fPegawai.dart';
 
-class statusDosen {
-  String status() {
-    return '';
-  }
-}
 
-class Dosen extends Pegawai implements statusDosen {
+
+
+
+
+class Dosen extends Pegawai {
   int _gajiTambahan = 0;
+  int _tunjanganKehadiran = 0;
+  int _status = 1;
+  int _jumlahSKS = 0;
 
-  Dosen(int gajiDasar, int tunjangan, int gajiTambahan) : super(gajiDasar,tunjangan) {
-    this._gajiTambahan = gajiTambahan;
+  //Dosen LB hanya SKS
+  Dosen(int gajiDasar, int tunjangan, int jumlahSKS, int status) : super(gajiDasar,tunjangan) {
+    this._jumlahSKS = jumlahSKS;
+    this._status = status;
+
+    this._gajiTambahan = this._jumlahSKS * 40000;
+
+
+    switch (status) {
+      // 1 Dosen Tetap
+      case 1: 
+          
+        break;
+      // 2 Dosen Tamu
+      case 2:
+
+        break;
+      // 3 DOsen LB
+      case 3:
+        break;
+    }
   }
 
-  @override
-  String status() {
-    // TODO: implement status
-    throw UnimplementedError();
-  }
+
 
   int ShowPenghasilan() {
-    return ()
+    // TODO
+    return 0;
   }
   
 }
