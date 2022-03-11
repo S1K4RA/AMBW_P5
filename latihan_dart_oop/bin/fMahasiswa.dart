@@ -1,23 +1,22 @@
 class Mahasiswa {
   int _SKS = 2;
-  bool _statusCuti = false;
-  int? _totalSKS;
+  bool statusCuti = false;
   double? _ipk;
   double? _ips;
 
-  Mahasiswa(this._SKS, this._statusCuti,this._totalSKS) {
-    this._ipk = this._ips;
+  Mahasiswa({int inputSKS = 2,bool inputStatusCuti = false,double inputIPS = 0}) {
+    _ipk = inputIPS;
+    _ips = inputIPS;
+    _SKS = inputSKS;
+    statusCuti = inputStatusCuti;
   }
-  get IPK {
+  
+  double? get getIPK {
     return _ipk;
   }
   
-  set IPS (double ips) {
-    this._ips = ips;
-  }
-
-  set statusCuti (bool status) {
-    this._statusCuti = status;
+  set setIPS (double ips) {
+    _ips = ips;
   }
 
   String setSKS (int jumlahSKS) {
@@ -27,5 +26,23 @@ class Mahasiswa {
       this._SKS = jumlahSKS;
       return "SKS berhasil diinput";
     }
+  }
+
+  get showSKS {
+    return _SKS;
+  }
+
+  void showFullData() {
+    print('SKS: $_SKS');
+
+    if (statusCuti) {
+      print('Status: Cuti');
+    } else {
+      print('Status: Tidak Cuti');
+    }
+
+    print('IPK: $_ipk');
+
+    print('IPS: $_ips');
   }
 }

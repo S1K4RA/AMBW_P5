@@ -1,44 +1,32 @@
 import 'fPegawai.dart';
 
-
-
-
-
-
 class Dosen extends Pegawai {
   int _gajiTambahan = 0;
-  int _tunjanganKehadiran = 0;
-  int _status = 1;
+  String _status = "Tetap";
   int _jumlahSKS = 0;
 
   //Dosen LB hanya SKS
-  Dosen(int gajiDasar, int tunjangan, int jumlahSKS, int status) : super(gajiDasar,tunjangan) {
-    this._jumlahSKS = jumlahSKS;
-    this._status = status;
+  Dosen(int gajiDasar, int tunjangan, {int inputJumlahSKS = 0, String inputStatus = "Tetap"}) : super(gajiDasar,tunjangan) {
+    _jumlahSKS = inputJumlahSKS;
+    _status = inputStatus;
 
-    this._gajiTambahan = this._jumlahSKS * 40000;
+    _gajiTambahan = _jumlahSKS * 40000; 
+  }
 
-
-    switch (status) {
+  int? get gajiTotal {
+    switch (_status) {
       // 1 Dosen Tetap
-      case 1: 
-          
-        break;
+      case "Tetap": 
+        return gajiDasar + _gajiTambahan + tunjangan;
       // 2 Dosen Tamu
-      case 2:
-
-        break;
-      // 3 DOsen LB
-      case 3:
-        break;
+      case "Tamu":
+        gajiDasar = 0;
+       return  _gajiTambahan + tunjangan;
+      // 3 Dosen LB
+      case "LB":
+        return _gajiTambahan;
+      default:
+        return 0;
     }
   }
-
-
-
-  int ShowPenghasilan() {
-    // TODO
-    return 0;
-  }
-  
 }
