@@ -29,4 +29,9 @@ class Dosen extends Pegawai {
         return 0;
     }
   }
+
+  void showData() {
+    print('SKS: $_jumlahSKS');
+    print('Status: $_status');
+  }
 }

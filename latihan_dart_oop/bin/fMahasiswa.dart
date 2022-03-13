@@ -34,15 +34,12 @@ class Mahasiswa {
 
   void showFullData() {
     print('SKS: $_SKS');
-
     if (statusCuti) {
       print('Status: Cuti');
     } else {
       print('Status: Tidak Cuti');
     }
-
     print('IPK: $_ipk');
-
     print('IPS: $_ips');
   }
 }

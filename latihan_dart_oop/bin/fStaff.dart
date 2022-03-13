@@ -21,5 +21,10 @@ class Staff extends Pegawai {
     _jumlahKehadiran += hari;
   }
 
+  void showData() {
+    print('Jatah Cuti: $_jatahCuti');
+    print('Jumlah Kehadiran: $_jumlahKehadiran');
+  }
+
   int get gajiTotal => gajiDasar + _jumlahKehadiran * tunjangan;
 }
